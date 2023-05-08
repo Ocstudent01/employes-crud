@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Table from '../components/table';
+import Form from '../components/form';
 
 import { BiUserPlus } from "react-icons/bi";
 
@@ -22,12 +23,12 @@ export default function Home() {
               Add Employee <span className='px-1'><BiUserPlus size={23}></BiUserPlus></span>
             </button>
           </div>
-          {/* collapsable form*/}
-
-          
         </div>
-          {/*table*/}
-          
+        {/* collapsable Form*/}
+        <div className='container mx-auto py-5'>
+          <Form></Form>
+        </div>
+        {/*table*/}
         <div className='container mx-auto'>
           <Table></Table>
         </div>
