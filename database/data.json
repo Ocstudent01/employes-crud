@@ -1,0 +1,66 @@
+[
+    {
+        "id":1,
+        "name": "kevin juanchi",
+        "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+        "email": "kevinjuanchi@gmail.com",
+        "salary": "25000",
+        "date": "08-06-2023",
+        "status": "Active"
+    },
+    {
+        "id":2,
+        "name": "orlando ramirez",
+        "avatar": "https://randomuser.me/api/portraits/men/2.jpg",
+        "email": "orlandoramirez2@gmail.com",
+        "salary": "17000",
+        "date": "08-06-2023",
+        "status": "Inactive"
+    },
+    {
+        "id":3,
+        "name": "maria flores",
+        "avatar": "https://randomuser.me/api/portraits/women/79.jpg",
+        "email": "mariaflores79@gmail.com",
+        "salary": "17000",
+        "date": "08-06-2023",
+        "status": "Inactive"
+    },
+    {
+        "id":4,
+        "name": "rosa vasquez",
+        "avatar": "https://randomuser.me/api/portraits/women/19.jpg",
+        "email": "rosavasquez19@gmail.com",
+        "salary": "17000",
+        "date": "08-06-2023",
+        "status": "Active"
+    },
+    {
+        "id":5,
+        "name": "milagros flores",
+        "avatar": "https://randomuser.me/api/portraits/women/59.jpg",
+        "email": "milagrosflores79@gmail.com",
+        "salary": "17000",
+        "date": "08-06-2023",
+        "status": "Active" 
+    },
+    {
+        "id":6,
+        "name": "miguel parra",
+        "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
+        "email": "miguelparra3@gmail.com",
+        "salary": "17000",
+        "date": "08-06-2023",
+        "status": "Active"
+    },
+    {
+        "id":7,
+        "name": "diego pinto",
+        "avatar": "https://randomuser.me/api/portraits/men/4.jpg",
+        "email": "diegopinto3@gmail.com",
+        "salary": "17000",
+        "date": "08-06-2023",
+        "status": "Inactive"
+    }
+
+]
