@@ -1,11 +1,26 @@
 import { BiEdit, BiTrashAlt } from "react-icons/bi";
-import data from '../database/data.json'
-import { getUser } from "../lib/helper";
+//esto es para cuando se utiliza data dura
+//import data from '../database/data.json'
+import { getUsers } from "../lib/helper";
+
+///esto se utiliza cuando la data esta en la nube
+import {useQuery} from 'react-query'
+
+import {useSelector} from 'react-redux';
+
+
 
 export default function Table(){ 
     
-    getUser().then(res => console.log(res))
+    //esto sirve para verificar si esta listando los datos
+    //getUser().then(res => console.log(res))
 
+    const state = useSelector((state) =>state)
+    console.log(state)
+    const {isLoading,isError,data,error} = useQuery('users',getUsers)
+
+    if(isLoading)return <div>Employes Loading ..!</div>
+    if(isError)return <div>Got Error{error}</div>
     return (
         <table className="min-w-full table-auto">
             <thead>
@@ -46,9 +61,9 @@ function Tr({id,name,avatar,email,salary,date,status}){
     //aqui vamos a separ la data que estaba dentro tbody
     return (
         <tr className="bg-gray-50 text-center">
-                    <td className="px-16 py-2 flex flex-row items-center">
+                    <td className="px-2 py-3 flex flex-row items-center">
                         <img src={avatar ||"#"} alt="" className="h-8 w-8 rounded-full object-cover"/>
-                        <span className="text-center ml-2 font-semibold">{name||"unknown"}</span>
+                        <span className="text-center ml-2 font-semibold">{name || "unknown"}</span>
                     </td>
                     <td className="px-14 py-2">
                         <span>{email||"unknown"}</span>
@@ -56,11 +71,11 @@ function Tr({id,name,avatar,email,salary,date,status}){
                     <td className="px-14 py-2">
                         <span>{salary||"unknown"}</span>
                     </td>
-                    <td className="px-14 py-2">
+                    <td className="px-10 py-2">
                         <span>{date||"unknown"}</span>
                     </td>
                     <td className="px-14 py-2">
-                        <button className="cursor"><span className="bg-green-500 text-white px-2 py-1 rounded-full" >{status||"unknown"}</span></button>
+                        <button className="cursor"><span className={`${status=="Active"?'bg-green-500':'bg-rose-500'} text-white px-2 py-1 rounded-full`} >{status||"unknown"}</span></button>
                     </td>
                     <td className="px-14 py-2 flex justify-around gap-5">
                         <button className="cursor"><BiEdit size={25} color={"rgb(34,197,94)"}></BiEdit></button>
