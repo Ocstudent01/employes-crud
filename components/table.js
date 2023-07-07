@@ -6,8 +6,9 @@ import { getUsers } from "../lib/helper";
 ///esto se utiliza cuando la data esta en la nube
 import {useQuery} from 'react-query'
 
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
+import {toggleChangeAction,updateAction}from '../redux/reducer'
 
 
 export default function Table(){ 
@@ -15,8 +16,8 @@ export default function Table(){
     //esto sirve para verificar si esta listando los datos
     //getUser().then(res => console.log(res))
 
-    const state = useSelector((state) =>state)
-    console.log(state)
+    
+    //console.log(state)
     const {isLoading,isError,data,error} = useQuery('users',getUsers)
 
     if(isLoading)return <div>Employes Loading ..!</div>
@@ -57,8 +58,18 @@ export default function Table(){
     
 }
 
-function Tr({id,name,avatar,email,salary,date,status}){
+function Tr({_id,name,avatar,email,salary,date,status}){
     //aqui vamos a separ la data que estaba dentro tbody
+
+    const visible = useSelector((state) =>state.app.client.toggleForm) 
+    const dispatch = useDispatch()
+
+    const onUpdate =()=>{
+        dispatch(toggleChangeAction(_id))
+        if(visible){
+            dispatch(updateAction(_id))
+        }
+    }
     return (
         <tr className="bg-gray-50 text-center">
                     <td className="px-2 py-3 flex flex-row items-center">
@@ -78,7 +89,7 @@ function Tr({id,name,avatar,email,salary,date,status}){
                         <button className="cursor"><span className={`${status=="Active"?'bg-green-500':'bg-rose-500'} text-white px-2 py-1 rounded-full`} >{status||"unknown"}</span></button>
                     </td>
                     <td className="px-14 py-2 flex justify-around gap-5">
-                        <button className="cursor"><BiEdit size={25} color={"rgb(34,197,94)"}></BiEdit></button>
+                        <button className="cursor" onClick={onUpdate}><BiEdit size={25} color={"rgb(34,197,94)"}></BiEdit></button>
                         <button className="cursor"><BiTrashAlt size={25} color={"rgb(244,63,94)"}></BiTrashAlt></button>
                     </td>
                 </tr>

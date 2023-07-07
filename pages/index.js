@@ -4,16 +4,20 @@ import styles from '../styles/Home.module.css'
 import Table from '../components/table';
 import Form from '../components/form';
 import { useState } from 'react';
+import { useSelector,useDispatch } from 'react-redux';
+import {toggleChangeAction} from '../redux/reducer';
 
 import { BiUserPlus } from "react-icons/bi";
 
 export default function Home() {
 
-  const [visible,setVisible]= useState(false)
+  const visible = useSelector((state)=>state.app.client.toggleForm)
+  const dispatch = useDispatch()
 
   const handler = ()=>{
     //setVisible(visible ? false : true) esta manera pero hay otra manera mas corta 
-    setVisible(!visible)
+    //setVisible(!visible)
+    dispatch(toggleChangeAction())
   }
   
   return (
