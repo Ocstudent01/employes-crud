@@ -19,7 +19,7 @@ export default async function handler(req, res) {
             postUser(req,res);
             break;
         default:
-            res.setHeader('Allow',['GET','POST','PUT','DELETE']);
+            res.setHeader('Allow',['GET','POST']);
             res.status(405).end(`Method ${method} Not Allowd`)
             break;
     }
